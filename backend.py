@@ -420,7 +420,7 @@ def hotel_agent(state: TravelState):
 
 def weather_agent(state: TravelState):
 
-    city = extract_destination_from_query(state['user_query'])
+    city = extract_destination(state['user_query'])
 
     weather_data = asyncio.run(weather_mcp_search(city))
 
