@@ -297,7 +297,7 @@ async def forecast_mcp_search(city: str):
 # Destination extractor
 # =========================================================
 
-def extract_destination_from_query(query: str) -> str:
+def extract_destination(query: str) -> str:
     prompt = f"""
 Extract only the destination city or country from the travel request.
 
