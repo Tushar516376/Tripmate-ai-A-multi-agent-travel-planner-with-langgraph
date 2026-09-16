@@ -27,7 +27,7 @@ from langchain_core.messages import (
 )
 from langchain_groq import ChatGroq
 
-from mcp_client import tavily_mcp_search,aviation_mcp_call,extract_destination,forecast_mcp_search,weather_mcp_search
+from mcp_client import tavily_mcp_search,aviation_mcp_call,extract_destination_from_query,forecast_mcp_search,weather_mcp_search
 
 def get_database_url():
     database_url = os.getenv("DATABASE_URL")
@@ -420,7 +420,7 @@ def hotel_agent(state: TravelState):
 
 def weather_agent(state: TravelState):
 
-    city = extract_destination(state['user_query'])
+    city = extract_destination_from_query(state['user_query'])
 
     weather_data = asyncio.run(weather_mcp_search(city))
 
